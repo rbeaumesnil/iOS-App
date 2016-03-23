@@ -14,6 +14,7 @@
 		F2265CA41C96F9E1005B30BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2265CA31C96F9E1005B30BB /* Assets.xcassets */; };
 		F2265CA71C96F9E1005B30BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2265CA51C96F9E1005B30BB /* LaunchScreen.storyboard */; };
 		F2265CB11C9711F7005B30BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2265CB01C9711F7005B30BB /* SignUpViewController.swift */; };
+		F27F83771CA2EDA2004C06B0 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F2265CA61C96F9E1005B30BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2265CA81C96F9E1005B30BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2265CB01C9711F7005B30BB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 				F2265CB01C9711F7005B30BB /* SignUpViewController.swift */,
 				F2265C991C96F9E1005B30BB /* AppDelegate.swift */,
 				F2265C9B1C96F9E1005B30BB /* ViewController.swift */,
-				F2265C9D1C96F9E1005B30BB /* Main.storyboard */,
 				F2265CA31C96F9E1005B30BB /* Assets.xcassets */,
+				F2265C9D1C96F9E1005B30BB /* Main.storyboard */,
+				F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */,
 				F2265CA51C96F9E1005B30BB /* LaunchScreen.storyboard */,
 				F2265CA81C96F9E1005B30BB /* Info.plist */,
 				F2265CA01C96F9E1005B30BB /* iOS_App.xcdatamodeld */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27F83771CA2EDA2004C06B0 /* MainPageViewController.swift in Sources */,
 				F2265C9C1C96F9E1005B30BB /* ViewController.swift in Sources */,
 				F2265CA21C96F9E1005B30BB /* iOS_App.xcdatamodeld in Sources */,
 				F2265CB11C9711F7005B30BB /* SignUpViewController.swift in Sources */,
@@ -292,6 +296,7 @@
 				F2265CAD1C96F9E1005B30BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

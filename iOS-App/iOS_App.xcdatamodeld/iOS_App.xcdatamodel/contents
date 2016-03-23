@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Categorie" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="services" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="categorie" inverseEntity="Service" syncable="YES"/>
+    </entity>
+    <entity name="Commentaire" syncable="YES">
+        <attribute name="note" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="auteur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="comm" inverseEntity="User" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="commentaire" inverseEntity="Service" syncable="YES"/>
+    </entity>
+    <entity name="Service" syncable="YES">
+        <attribute name="adresse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="datedebut" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="datefin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dureequotidienne" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="titre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="categorie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categorie" inverseName="services" inverseEntity="Categorie" syncable="YES"/>
+        <relationship name="commentaire" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commentaire" inverseName="service" inverseEntity="Commentaire" syncable="YES"/>
+        <relationship name="demandeur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="servicesutil" inverseEntity="User" syncable="YES"/>
+        <relationship name="offreur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="servicescree" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="User" syncable="YES">
-        <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adresse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commentaire" inverseName="auteur" inverseEntity="Commentaire" syncable="YES"/>
+        <relationship name="servicescree" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="offreur" inverseEntity="Service" syncable="YES"/>
+        <relationship name="servicesutil" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="demandeur" inverseEntity="Service" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Service" positionX="-54" positionY="36" width="128" height="30"/>
+        <element name="Categorie" positionX="-45" positionY="90" width="128" height="30"/>
+        <element name="Commentaire" positionX="-27" positionY="72" width="128" height="30"/>
     </elements>
 </model>
