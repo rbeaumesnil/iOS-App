@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var mailField: UITextField!
@@ -20,4 +20,20 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.mailField.delegate = self;
+        self.passwordField.delegate = self;
+        self.lastnameField.delegate = self;
+        self.firstnameField.delegate = self;
+        self.phoneField.delegate = self;
+        self.addressField.delegate = self;
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
