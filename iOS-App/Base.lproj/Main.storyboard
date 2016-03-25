@@ -326,15 +326,11 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7C-Id-TyO">
-                                        <rect key="frame" x="78" y="371" width="164" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-ra-8KH">
                                         <rect key="frame" x="125" y="422" width="60" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
+                                            <action selector="SignUpClick:" destination="fl5-we-AKV" eventType="touchUpInside" id="AOQ-Lg-EAF"/>
                                             <segue destination="8W1-tm-wnh" kind="show" identifier="SignInToMain" id="8Lv-20-MlJ"/>
                                         </connections>
                                     </button>
@@ -344,12 +340,20 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I7C-Id-TyO">
+                                        <rect key="frame" x="78" y="371" width="164" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
                                         <size key="value" width="320" height="568"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="fl5-we-AKV" id="CDv-4n-rDu"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -359,11 +363,11 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="addressField" destination="I7C-Id-TyO" id="87s-AF-QJ3"/>
-                        <outlet property="firstnameField" destination="11z-za-iNF" id="s0Z-SH-8LM"/>
+                        <outlet property="firstnameField" destination="W8O-C5-8uG" id="bzM-ba-Vjb"/>
                         <outlet property="lastnameField" destination="CVf-1w-tTg" id="jPw-Br-vMO"/>
                         <outlet property="mailField" destination="6UP-Ve-4TS" id="zyC-6K-04B"/>
                         <outlet property="passwordField" destination="771-jK-0A8" id="PnG-13-o43"/>
-                        <outlet property="phoneField" destination="W8O-C5-8uG" id="Ysu-YA-EpD"/>
+                        <outlet property="phoneField" destination="11z-za-iNF" id="C9t-jg-MxW"/>
                         <outlet property="signUpButton" destination="1cu-ra-8KH" id="nZh-vY-BDP"/>
                     </connections>
                 </viewController>
@@ -392,6 +396,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RTR-hb-VGc"/>
+        <segue reference="8Lv-20-MlJ"/>
     </inferredMetricsTieBreakers>
 </document>
