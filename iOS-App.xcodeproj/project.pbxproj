@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DA49EE31CA5398B00F58A34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */; };
+		8DA49EE51CA53B6500F58A34 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */; };
+		8DA49EFF1CA5405900F58A34 /* CreateHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */; };
 		F2265C9A1C96F9E1005B30BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2265C991C96F9E1005B30BB /* AppDelegate.swift */; };
 		F2265C9C1C96F9E1005B30BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2265C9B1C96F9E1005B30BB /* ViewController.swift */; };
 		F2265C9F1C96F9E1005B30BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2265C9D1C96F9E1005B30BB /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHelpViewController.swift; sourceTree = "<group>"; };
 		F2265C961C96F9E1005B30BB /* iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2265C991C96F9E1005B30BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2265C9B1C96F9E1005B30BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 				F2265C9B1C96F9E1005B30BB /* ViewController.swift */,
 				F2265CA31C96F9E1005B30BB /* Assets.xcassets */,
 				F2265C9D1C96F9E1005B30BB /* Main.storyboard */,
+				8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */,
+				8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */,
+				8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */,
 				F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */,
 				F2265CA51C96F9E1005B30BB /* LaunchScreen.storyboard */,
 				F2265CA81C96F9E1005B30BB /* Info.plist */,
@@ -144,9 +153,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DA49EE31CA5398B00F58A34 /* ProfileViewController.swift in Sources */,
 				F27F83771CA2EDA2004C06B0 /* MainPageViewController.swift in Sources */,
 				F2265C9C1C96F9E1005B30BB /* ViewController.swift in Sources */,
 				F2265CA21C96F9E1005B30BB /* iOS_App.xcdatamodeld in Sources */,
+				8DA49EE51CA53B6500F58A34 /* DetailsViewController.swift in Sources */,
+				8DA49EFF1CA5405900F58A34 /* CreateHelpViewController.swift in Sources */,
 				F2265CB11C9711F7005B30BB /* SignUpViewController.swift in Sources */,
 				F2265C9A1C96F9E1005B30BB /* AppDelegate.swift in Sources */,
 			);
@@ -259,10 +271,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "iOS-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.univ-orleans.rb.iOS-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -270,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "iOS-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.univ-orleans.rb.iOS-App";
