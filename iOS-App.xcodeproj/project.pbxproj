@@ -15,6 +15,8 @@
 		8D3E26561CA5764800374A7A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264E1CA5764800374A7A /* Service.swift */; };
 		8D3E26571CA5764800374A7A /* Categorie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264F1CA5764800374A7A /* Categorie+CoreDataProperties.swift */; };
 		8D3E26581CA5764800374A7A /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E26501CA5764800374A7A /* Categorie.swift */; };
+		8D3E265A1CA584D700374A7A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E26591CA584D700374A7A /* MapViewController.swift */; };
+		8D3E265C1CA588A100374A7A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3E265B1CA588A100374A7A /* CoreLocation.framework */; };
 		8DA49EE31CA5398B00F58A34 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */; };
 		8DA49EE51CA53B6500F58A34 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */; };
 		8DA49EFF1CA5405900F58A34 /* CreateHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */; };
@@ -37,6 +39,8 @@
 		8D3E264E1CA5764800374A7A /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8D3E264F1CA5764800374A7A /* Categorie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8D3E26501CA5764800374A7A /* Categorie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
+		8D3E26591CA584D700374A7A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8D3E265B1CA588A100374A7A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHelpViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D3E265C1CA588A100374A7A /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 		F2265C8D1C96F9E0005B30BB = {
 			isa = PBXGroup;
 			children = (
+				8D3E265B1CA588A100374A7A /* CoreLocation.framework */,
 				8D3E26491CA5764800374A7A /* User+CoreDataProperties.swift */,
 				8D3E264A1CA5764800374A7A /* User.swift */,
 				8D3E264B1CA5764800374A7A /* Commentaire+CoreDataProperties.swift */,
@@ -95,6 +101,7 @@
 				F2265C9B1C96F9E1005B30BB /* ViewController.swift */,
 				F2265CA31C96F9E1005B30BB /* Assets.xcassets */,
 				F2265C9D1C96F9E1005B30BB /* Main.storyboard */,
+				8D3E26591CA584D700374A7A /* MapViewController.swift */,
 				8DA49EFE1CA5405900F58A34 /* CreateHelpViewController.swift */,
 				8DA49EE41CA53B6500F58A34 /* DetailsViewController.swift */,
 				8DA49EE21CA5398B00F58A34 /* ProfileViewController.swift */,
@@ -193,6 +200,7 @@
 				8D3E26581CA5764800374A7A /* Categorie.swift in Sources */,
 				8D3E26521CA5764800374A7A /* User.swift in Sources */,
 				8D3E26511CA5764800374A7A /* User+CoreDataProperties.swift in Sources */,
+				8D3E265A1CA584D700374A7A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

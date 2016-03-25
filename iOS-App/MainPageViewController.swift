@@ -9,5 +9,14 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
-
+    
+    var lol = []
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return lol.count
+    }
 }

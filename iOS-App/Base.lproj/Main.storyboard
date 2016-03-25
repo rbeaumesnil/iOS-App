@@ -5,6 +5,33 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Map-->
+        <scene sceneID="EJ2-oE-pfW">
+            <objects>
+                <viewController title="Map" id="bsP-UB-X5t" customClass="MapViewController" customModule="iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9a7-az-nnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="yvf-Wr-EEb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HG1-7T-U0K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Khc-yH-2qW">
+                                <rect key="frame" x="-14" y="64" width="334" height="504"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="map" destination="Khc-yH-2qW" id="hYc-JE-dVM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RY9-cL-ncq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="1027"/>
+        </scene>
         <!--Main-->
         <scene sceneID="vCm-Zx-e69">
             <objects>
@@ -26,12 +53,22 @@
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-AV-2Zr">
                                 <rect key="frame" x="0.0" y="115" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8W1-tm-wnh" id="DSN-fP-Q2d"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru9-uL-5pi">
-                                <rect key="frame" x="41" y="72" width="100" height="30"/>
+                                <rect key="frame" x="8" y="72" width="100" height="30"/>
                                 <state key="normal" title="Create help"/>
                                 <connections>
                                     <segue destination="qLv-4X-59M" kind="show" id="2hb-iX-S7k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxi-7A-9gR">
+                                <rect key="frame" x="137" y="72" width="46" height="30"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="bsP-UB-X5t" kind="show" id="EkV-7b-Oo4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -396,6 +433,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8Lv-20-MlJ"/>
+        <segue reference="RTR-hb-VGc"/>
     </inferredMetricsTieBreakers>
 </document>
