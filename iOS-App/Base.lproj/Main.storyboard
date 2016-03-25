@@ -71,6 +71,13 @@
                                     <segue destination="bsP-UB-X5t" kind="show" id="EkV-7b-Oo4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G64-Dw-eFO">
+                                <rect key="frame" x="225" y="101" width="71" height="30"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="APq-Tl-Kal"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -496,5 +503,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="RTR-hb-VGc"/>
+        <segue reference="APq-Tl-Kal"/>
     </inferredMetricsTieBreakers>
 </document>
