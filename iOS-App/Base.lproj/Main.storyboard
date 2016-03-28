@@ -52,12 +52,6 @@
                                     <segue destination="oJO-JU-MK6" kind="show" id="ZCs-cE-2Rz"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-AV-2Zr">
-                                <rect key="frame" x="0.0" y="115" width="320" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="8W1-tm-wnh" id="DSN-fP-Q2d"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ru9-uL-5pi">
                                 <rect key="frame" x="8" y="72" width="100" height="30"/>
                                 <state key="normal" title="Create help"/>
@@ -79,6 +73,12 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="APq-Tl-Kal"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mo5-AV-2Zr">
+                                <rect key="frame" x="0.0" y="115" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8W1-tm-wnh" id="DSN-fP-Q2d"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -101,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlz-xJ-x09">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlz-xJ-x09">
                                 <rect key="frame" x="-8" y="28" width="328" height="540"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD1-kl-81q">
@@ -625,6 +625,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8Lv-20-MlJ"/>
-        <segue reference="1Er-71-hqA"/>
+        <segue reference="APq-Tl-Kal"/>
     </inferredMetricsTieBreakers>
 </document>
