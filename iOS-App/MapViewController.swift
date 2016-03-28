@@ -47,7 +47,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         // Décorer l'annotation avec un titre et un sous-titre
         annotation.title = "Un titre du coin"
         
-        annotation.subtitle = "Un petit texte qui le détaille..."
+        //annotation.subtitle = "Un petit texte qui le détaille..."
         
         // Ajouter l'annotation à la carte : Pin cliquable avec apparition du texte
         map.addAnnotation(annotation)
