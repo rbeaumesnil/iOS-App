@@ -46,7 +46,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     
+        if segue.identifier == "SignIn" {
+            let mainPage = segue.destinationViewController as! MainPageViewController
+            mainPage.loggedUser = loginField.text!
+        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {

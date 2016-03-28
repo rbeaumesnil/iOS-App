@@ -10,6 +10,7 @@ import UIKit
 
 class MainPageViewController: UIViewController {
     
+    var loggedUser : String = ""
     var lol = []
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

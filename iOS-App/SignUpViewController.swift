@@ -116,6 +116,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             user.setValue(phoneField.text, forKey:"telephone")
             user.setValue(addressField.text, forKey:"adresse")
             
+            let mainPage = segue.destinationViewController as! MainPageViewController
+            mainPage.loggedUser = mailField.text!
+            
             
             do {
                 try managedContext.save()
