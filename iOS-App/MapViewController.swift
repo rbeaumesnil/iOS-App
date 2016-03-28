@@ -51,15 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         
         // Ajouter l'annotation à la carte : Pin cliquable avec apparition du texte
         map.addAnnotation(annotation)
-        
-        // Définir l'action de pression avec sa durée min et l'ajouter sur la carte
-        
-        var pression = UILongPressGestureRecognizer(target: self, action: "allerIci:")
-        
-        pression.minimumPressDuration = 2
-        
-        map.addGestureRecognizer(pression)
-        
+         
         // Créer le gestionnaire de position
         manager = CLLocationManager()
         // La faire gérer par le contrôleur courant
@@ -91,27 +83,8 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         map.setRegion(region, animated: false)
         
     }
-    
-    func allerIci(gestureRecognizer: UIGestureRecognizer) {
-        
-        // Trouver le point de pression
-        var pointDePression = gestureRecognizer.locationInView(self.map)
-        
-        // Convertir ce point en coordonnées
-        var newCoordinate: CLLocationCoordinate2D = map.convertPoint(pointDePression, toCoordinateFromView: self.map)
-        
-        // Créer l'annotation sur ces coordonnées
-        var annotation = MKPointAnnotation()
-        
-        annotation.coordinate = newCoordinate
-        
-        annotation.title = "Nouvel emplacement"
-        
-        annotation.subtitle = "Trouvé au hasard du mouvement de mon doigt !"
-        
-        map.addAnnotation(annotation)
-        
-    };    override func didReceiveMemoryWarning() {
+
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
