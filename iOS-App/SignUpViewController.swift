@@ -126,6 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 try managedContext.save()
             } catch {
                 print("Problème lors de la sauvegarde !")
-            }        }
+            }
+        }
     }
 }

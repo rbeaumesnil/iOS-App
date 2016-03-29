@@ -20,48 +20,37 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
 
         // Do any additional setup after loading the view.
         
-        
-        let latitude:CLLocationDegrees = 47.845512
-        let longitude:CLLocationDegrees = 1.939834
-        
-        let lonDelta:CLLocationDegrees = 0.05
-        let latDelta:CLLocationDegrees = 0.05
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-        
-        
-        //Définir un point dans la carte
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        
-        // Décider de la région à afficher (centrée sur le point défini)
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-        
-        // Dessiner la region sur l'Outlet carte
-        map.setRegion(region, animated: false)
-        
-        // Créer l'objet annotaion
-        var annotation = MKPointAnnotation()
-        
-        // Lui donner les coordonnées définis plus haut
-        annotation.coordinate = location
-        
-        // Décorer l'annotation avec un titre et un sous-titre
-        annotation.title = "Un titre du coin"
-        
-        //annotation.subtitle = "Un petit texte qui le détaille..."
-        
-        // Ajouter l'annotation à la carte : Pin cliquable avec apparition du texte
-        map.addAnnotation(annotation)
-         
-        // Créer le gestionnaire de position
-        manager = CLLocationManager()
-        // La faire gérer par le contrôleur courant
-        manager.delegate = self
-        // Définir la précision
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        // Demander l'autorisation de géolocaliser
-        manager.requestWhenInUseAuthorization()
-        // Débuter la mise à jour de la position (au cas où on bouge)
-        manager.startUpdatingLocation()
+        var location: String = "725 Colombus Ave, CA, USA"
+        var geocoder: CLGeocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if (placemarks?.count > 0) {
+            var topResult: CLPlacemark = (placemarks?[0])!
+            var placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+            var region: MKCoordinateRegion = self.map.region
+            region.span.longitudeDelta /= 8.0
+            region.span.latitudeDelta /= 8.0
+            self.map.setRegion(region, animated: true)
+            self.map.addAnnotation(placemark)
+            // Dessiner la region sur l'Outlet carte
+            self.map.setRegion(region, animated: false)
+            
+            let lonDelta:CLLocationDegrees = 0.05
+            let latDelta:CLLocationDegrees = 0.05
+            let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
+            
+            // Créer le gestionnaire de position
+            self.manager = CLLocationManager()
+            // La faire gérer par le contrôleur courant
+            self.manager.delegate = self
+            // Définir la précision
+            self.manager.desiredAccuracy = kCLLocationAccuracyBest
+            // Demander l'autorisation de géolocaliser
+            self.manager.requestWhenInUseAuthorization()
+            // Débuter la mise à jour de la position (au cas où on bouge)
+            self.manager.startUpdatingLocation()
+            }
+            })
+    
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

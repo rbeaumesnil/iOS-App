@@ -7,15 +7,121 @@
 //
 
 import UIKit
+import CoreData
 
-class CreateHelpViewController: UIViewController {
+class CreateHelpViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var descField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var beginDate: UIDatePicker!
+    @IBOutlet weak var endDate: UIDatePicker!
+    @IBOutlet weak var durationField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.titleField.delegate = self
+        self.descField.delegate = self
+        self.addressField.delegate = self
+        self.durationField.delegate = self
         // Do any additional setup after loading the view.
     }
-
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        var segueShouldOccur : Int = 3 //variable pour le code d'erreur // 3 erreur inconnue
+        if identifier == "MainSegue" {
+            //test si les champs sont remplis
+            if(titleField.text == "" || descField.text == "" || addressField.text == "" || durationField.text == ""){
+                ////code erreur 1 champs incomplets
+                segueShouldOccur = 1
+            }
+                //test si le user existe
+            else {
+                //requete
+                let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let context: NSManagedObjectContext = appDel.managedObjectContext
+                let request = NSFetchRequest(entityName: "Service")
+                request.predicate = NSPredicate(format: "title = %@", titleField.text!)
+                request.returnsObjectsAsFaults = false
+                do {
+                    let resultats = try context.executeFetchRequest(request)
+                    //compte si il y a déjà des utilisateurs existant avec ce mail
+                    if resultats.count > 0 {
+                        ////code erreur 2 si le mail a déjà été utilisé par un compte
+                        segueShouldOccur = 2
+                    } else {
+                        ////code erreur 0 si le mail est valide
+                        segueShouldOccur = 0
+                    }
+                } catch {
+                    print("Echec de la requête Fetch !")
+                }
+            }
+            if segueShouldOccur != 0{
+                //test les codes d'erreur
+                var error : String = "";
+                if segueShouldOccur == 1 {
+                    error = "Please complete fields"
+                }
+                else if  segueShouldOccur == 2 {
+                    error = "User already exist"
+                }
+                else if segueShouldOccur == 3 {
+                    error = "Unknown error"
+                }
+                //popup erreur
+                let alert = UIAlertController (title: "Error", message: error, preferredStyle: UIAlertControllerStyle.Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(OKAction)
+                presentViewController(alert, animated: true, completion: nil)
+                
+                // invalide le segue
+                return false
+            }
+        }
+        
+        // valide le segue
+        return true
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MainSegue" {
+            //requete ajout user
+            let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+            
+            let managedContext: NSManagedObjectContext = appDelegate!.managedObjectContext
+            
+            let entity = NSEntityDescription.entityForName("Service", inManagedObjectContext: managedContext)
+            
+            let service = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+            
+            service.setValue(titleField.text, forKey:"titre")
+            service.setValue(descField.text, forKey:"desc")
+            service.setValue(addressField.text, forKey:"adresse")
+            service.setValue(Int(durationField.text!), forKey:"dureequotidienne")
+            service.setValue(beginDate.date, forKey:"datedebut")
+            service.setValue(endDate.date, forKey: "datefin")
+            
+            
+            //let mainPage = segue.destinationViewController as! MainPageViewController
+            //mainPage.loggedUser = mailField.text!
+            
+            
+            do {
+                try managedContext.save()
+            } catch {
+                print("Problème lors de la sauvegarde !")
+            }
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
