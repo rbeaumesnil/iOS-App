@@ -8,28 +8,50 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate {
 
     @IBOutlet weak var map: MKMapView!
     
     var manager:CLLocationManager!
+    var addresses = [""]
+    var titles = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        var location: String = "725 Colombus Ave, CA, USA"
-        var geocoder: CLGeocoder = CLGeocoder()
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext
+        let request = NSFetchRequest(entityName: "Service")
+        do {
+            let resultats = try context.executeFetchRequest(request)
+            for result in resultats as! [NSManagedObject] {
+                let address = result.valueForKey("adresse") as! String
+                let title = result.valueForKey("titre") as! String
+                addresses.append(address)
+                titles.append(title)
+            }
+        } catch {
+            print("Echec de la requête Fetch !")
+        }
+        
+        var region: MKCoordinateRegion = self.map.region
+        
+        for add in addresses {
+        let location: String = add
+            var geocoder: CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             if (placemarks?.count > 0) {
             var topResult: CLPlacemark = (placemarks?[0])!
             var placemark: MKPlacemark = MKPlacemark(placemark: topResult)
-            var region: MKCoordinateRegion = self.map.region
+                                
             region.span.longitudeDelta /= 8.0
             region.span.latitudeDelta /= 8.0
             self.map.setRegion(region, animated: true)
+            
             self.map.addAnnotation(placemark)
             // Dessiner la region sur l'Outlet carte
             self.map.setRegion(region, animated: false)
@@ -50,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
             self.manager.startUpdatingLocation()
             }
             })
-    
+    }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
