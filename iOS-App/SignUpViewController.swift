@@ -119,7 +119,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             
             let mainPage = segue.destinationViewController as! MainPageViewController
-            mainPage.loggedUser = mailField.text!
+            mainPage.loggedUser = user
             
             
             do {

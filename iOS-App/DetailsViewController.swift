@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailsViewController: UIViewController {
-
+    var service : NSManagedObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

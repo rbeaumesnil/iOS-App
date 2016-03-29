@@ -9,10 +9,15 @@
 import UIKit
 import CoreData
 
-class MainPageViewController: UIViewController{
+class MainPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    var loggedUser : String = ""
-    var cat = [""]
+    @IBOutlet weak var tableview: UITableView!
+    
+    var loggedUser : NSManagedObject!
+    var cat = ["Every Category"]
+    var serv: [NSManagedObject] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +35,46 @@ class MainPageViewController: UIViewController{
             print("Echec de la requête Fetch !")
         }
         
+        tableview.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customcell")
         
+        let requestServ = NSFetchRequest(entityName: "Service")
+        
+        do {
+            let resultatsServ = try context.executeFetchRequest(requestServ)
+            for resultServ in resultatsServ as! [NSManagedObject] {
+                serv.append(resultServ)
+            }
+        } catch {
+            print("Echec de la requête Fetch !")
+        }
         
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return serv.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
+        let service = serv[indexPath.item]
+        cell.textLabel?.text = (service.valueForKey("titre") as! String)
+        cell.detailTextLabel?.text = (service.valueForKey("desc") as! String)
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("DetailsService", sender: indexPath.row)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DetailService" {
+            if let indice = tableview.indexPathForSelectedRow {
+                let dvc = segue.destinationViewController as! DetailsViewController
+                dvc.service = serv[indice.row]
+            }
+        }
+    }
+    
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -44,6 +86,6 @@ class MainPageViewController: UIViewController{
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String
         {
-        return cat[row] as! String
+        return cat[row] 
     }
 }

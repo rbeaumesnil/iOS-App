@@ -81,7 +81,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SignIn" {
             let mainPage = segue.destinationViewController as! MainPageViewController
-            mainPage.loggedUser = loginField.text!
+            let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDel.managedObjectContext
+            let request = NSFetchRequest(entityName: "User")
+            request.predicate = NSPredicate(format: "mail = %@", loginField.text!)
+            request.returnsObjectsAsFaults = false
+            do {
+                let resultats = try context.executeFetchRequest(request)
+                mainPage.loggedUser = resultats[0] as! NSManagedObject
+            } catch {
+                print("Echec de la requête Fetch !")
+            }
         }
     }
     

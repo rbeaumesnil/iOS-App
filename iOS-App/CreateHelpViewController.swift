@@ -42,34 +42,13 @@ class CreateHelpViewController: UIViewController, UITextFieldDelegate {
             }
                 //test si le user existe
             else {
-                //requete
-                let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                let context: NSManagedObjectContext = appDel.managedObjectContext
-                let request = NSFetchRequest(entityName: "Service")
-                request.predicate = NSPredicate(format: "title = %@", titleField.text!)
-                request.returnsObjectsAsFaults = false
-                do {
-                    let resultats = try context.executeFetchRequest(request)
-                    //compte si il y a déjà des utilisateurs existant avec ce mail
-                    if resultats.count > 0 {
-                        ////code erreur 2 si le mail a déjà été utilisé par un compte
-                        segueShouldOccur = 2
-                    } else {
-                        ////code erreur 0 si le mail est valide
-                        segueShouldOccur = 0
-                    }
-                } catch {
-                    print("Echec de la requête Fetch !")
-                }
+                segueShouldOccur = 0
             }
             if segueShouldOccur != 0{
                 //test les codes d'erreur
                 var error : String = "";
                 if segueShouldOccur == 1 {
                     error = "Please complete fields"
-                }
-                else if  segueShouldOccur == 2 {
-                    error = "User already exist"
                 }
                 else if segueShouldOccur == 3 {
                     error = "Unknown error"
