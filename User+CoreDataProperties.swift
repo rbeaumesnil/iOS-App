@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  iOS-App
 //
-//  Created by tp24 on 25/03/2016.
+//  Created by tp on 29/03/2016.
 //  Copyright © 2016 tp. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,12 +17,13 @@ extension User {
     @NSManaged var adresse: String?
     @NSManaged var mail: String?
     @NSManaged var nom: String?
-    @NSManaged var note: NSNumber?
+    @NSManaged var scoreTotal: NSNumber?
     @NSManaged var password: String?
     @NSManaged var prenom: String?
     @NSManaged var telephone: String?
-    @NSManaged var comm: Commentaire?
-    @NSManaged var servicescree: Service?
-    @NSManaged var servicesutil: Service?
+    @NSManaged var nbNote: NSNumber?
+    @NSManaged var comm: NSSet?
+    @NSManaged var servicescree: NSSet?
+    @NSManaged var servicesutil: NSSet?
 
 }

@@ -22,6 +22,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.loginField.delegate = self;
         self.passwordField.delegate = self;
         
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context: NSManagedObjectContext = appDelegate.managedObjectContext
+        let request = NSFetchRequest(entityName: "Categorie")
+        request.returnsObjectsAsFaults = false
+        do {
+            let resultats = try context.executeFetchRequest(request)
+            if resultats.count == 0 {
+                
+                let managedContext: NSManagedObjectContext = appDelegate.managedObjectContext
+                
+                let entity = NSEntityDescription.entityForName("Categorie", inManagedObjectContext: managedContext)
+                
+                let cat1 = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                let cat2 = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                let cat3 = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                let cat4 = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                
+                cat1.setValue("Do It Yourself", forKey:"title")
+                cat2.setValue("Language", forKey:"title")
+                cat3.setValue("Coaching", forKey:"title")
+                cat4.setValue("Others", forKey:"title")
+                
+                
+                do {
+                    try managedContext.save()
+                } catch {
+                    print("Problème lors de la sauvegarde !")
+                }
+            }
+        } catch {
+            print("Echec de la requête Fetch !")
+        }
+                
         /*var user = NSEntityDescription.insertNewObjectForEntityForName("User",
             inManagedObjectContext: self.managedObjectContext!) as NSManagedObject
         user.name = "Mary"

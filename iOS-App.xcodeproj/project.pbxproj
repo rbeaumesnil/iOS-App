@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D3E26511CA5764800374A7A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E26491CA5764800374A7A /* User+CoreDataProperties.swift */; };
-		8D3E26521CA5764800374A7A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264A1CA5764800374A7A /* User.swift */; };
 		8D3E26531CA5764800374A7A /* Commentaire+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264B1CA5764800374A7A /* Commentaire+CoreDataProperties.swift */; };
 		8D3E26541CA5764800374A7A /* Commentaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264C1CA5764800374A7A /* Commentaire.swift */; };
 		8D3E26551CA5764800374A7A /* Service+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E264D1CA5764800374A7A /* Service+CoreDataProperties.swift */; };
@@ -28,11 +26,11 @@
 		F2265CA71C96F9E1005B30BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2265CA51C96F9E1005B30BB /* LaunchScreen.storyboard */; };
 		F2265CB11C9711F7005B30BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2265CB01C9711F7005B30BB /* SignUpViewController.swift */; };
 		F27F83771CA2EDA2004C06B0 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */; };
+		F29B0B691CAA97A200824692 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B0B671CAA97A200824692 /* User+CoreDataProperties.swift */; };
+		F29B0B6A1CAA97A200824692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29B0B681CAA97A200824692 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D3E26491CA5764800374A7A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8D3E264A1CA5764800374A7A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8D3E264B1CA5764800374A7A /* Commentaire+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commentaire+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8D3E264C1CA5764800374A7A /* Commentaire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commentaire.swift; sourceTree = "<group>"; };
 		8D3E264D1CA5764800374A7A /* Service+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		F2265CA81C96F9E1005B30BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2265CB01C9711F7005B30BB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F27F83761CA2EDA2004C06B0 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		F29B0B671CAA97A200824692 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F29B0B681CAA97A200824692 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				8D3E265B1CA588A100374A7A /* CoreLocation.framework */,
-				8D3E26491CA5764800374A7A /* User+CoreDataProperties.swift */,
-				8D3E264A1CA5764800374A7A /* User.swift */,
 				8D3E264B1CA5764800374A7A /* Commentaire+CoreDataProperties.swift */,
+				F29B0B671CAA97A200824692 /* User+CoreDataProperties.swift */,
+				F29B0B681CAA97A200824692 /* User.swift */,
 				8D3E264C1CA5764800374A7A /* Commentaire.swift */,
 				8D3E264D1CA5764800374A7A /* Service+CoreDataProperties.swift */,
 				8D3E264E1CA5764800374A7A /* Service.swift */,
@@ -186,10 +186,12 @@
 			files = (
 				8DA49EE31CA5398B00F58A34 /* ProfileViewController.swift in Sources */,
 				8D3E26561CA5764800374A7A /* Service.swift in Sources */,
+				F29B0B691CAA97A200824692 /* User+CoreDataProperties.swift in Sources */,
 				F27F83771CA2EDA2004C06B0 /* MainPageViewController.swift in Sources */,
 				F2265C9C1C96F9E1005B30BB /* ViewController.swift in Sources */,
 				8D3E26571CA5764800374A7A /* Categorie+CoreDataProperties.swift in Sources */,
 				F2265CA21C96F9E1005B30BB /* iOS_App.xcdatamodeld in Sources */,
+				F29B0B6A1CAA97A200824692 /* User.swift in Sources */,
 				8DA49EE51CA53B6500F58A34 /* DetailsViewController.swift in Sources */,
 				8DA49EFF1CA5405900F58A34 /* CreateHelpViewController.swift in Sources */,
 				8D3E26551CA5764800374A7A /* Service+CoreDataProperties.swift in Sources */,
@@ -198,8 +200,6 @@
 				8D3E26541CA5764800374A7A /* Commentaire.swift in Sources */,
 				F2265C9A1C96F9E1005B30BB /* AppDelegate.swift in Sources */,
 				8D3E26581CA5764800374A7A /* Categorie.swift in Sources */,
-				8D3E26521CA5764800374A7A /* User.swift in Sources */,
-				8D3E26511CA5764800374A7A /* User+CoreDataProperties.swift in Sources */,
 				8D3E265A1CA584D700374A7A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
