@@ -1,4 +1,4 @@
-//
+    //
 //  DetailsViewController.swift
 //  iOS-App
 //
@@ -12,10 +12,27 @@ import CoreData
 class DetailsViewController: UIViewController {
     var service : NSManagedObject!
     
+    @IBOutlet weak var titleField: UILabel!
+    @IBOutlet weak var descField: UILabel!
+    @IBOutlet weak var dateDebut: UILabel!
+    @IBOutlet weak var dateFin: UILabel!
+    @IBOutlet weak var dayDuration: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
         // Do any additional setup after loading the view.
+        titleField.text = service.valueForKey("titre") as! String
+        descField.text = service.valueForKey("desc") as! String
+        var datedeb = service.valueForKey("datedebut") as! NSDate
+        dateDebut.text = dateDebut.text! + " : " + dateFormatter.stringFromDate(datedeb) as! String
+        var datefin = service.valueForKey("datefin") as! NSDate
+        dateFin.text = dateFin.text! + " : " + dateFormatter.stringFromDate(datefin) as! String
+        var duration = service.valueForKey("dureequotidienne")
+        dayDuration.text = dayDuration.text! + " : " + (duration?.stringValue)!
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -67,7 +67,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DetailService" {
+        if segue.identifier == "DetailsService" {
             if let indice = tableview.indexPathForSelectedRow {
                 let dvc = segue.destinationViewController as! DetailsViewController
                 dvc.service = serv[indice.row]
