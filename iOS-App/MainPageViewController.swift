@@ -73,6 +73,10 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
                 dvc.service = serv[indice.row]
             }
         }
+        if segue.identifier == "profileSegue" {
+            let dvc = segue.destinationViewController as! ProfileViewController
+            dvc.user = loggedUser
+        }
     }
     
     
