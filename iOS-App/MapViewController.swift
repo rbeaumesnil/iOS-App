@@ -13,6 +13,7 @@ import CoreData
 class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDelegate {
 
     @IBOutlet weak var map: MKMapView!
+    var user : NSManagedObject!
     
     var manager:CLLocationManager!
     var addresses = [""]
@@ -100,6 +101,12 @@ class MapViewController: UIViewController, MKMapViewDelegate,CLLocationManagerDe
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "BackToMain"){
+            let dvc = segue.destinationViewController as! MainPageViewController
+            dvc.loggedUser = user
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -71,10 +71,19 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITableVi
             if let indice = tableview.indexPathForSelectedRow {
                 let dvc = segue.destinationViewController as! DetailsViewController
                 dvc.service = serv[indice.row]
+                dvc.user = loggedUser
             }
         }
         if segue.identifier == "profileSegue" {
             let dvc = segue.destinationViewController as! ProfileViewController
+            dvc.user = loggedUser
+        }
+        if segue.identifier == "ToMap" {
+            let dvc = segue.destinationViewController as! MapViewController
+            dvc.user = loggedUser
+        }
+        if(segue.identifier == "ToHelpCreation"){
+            let dvc = segue.destinationViewController as! CreateHelpViewController
             dvc.user = loggedUser
         }
     }

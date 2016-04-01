@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class CreateHelpViewController: UIViewController, UITextFieldDelegate {
+    var user : NSManagedObject!
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descField: UITextField!
@@ -91,12 +92,18 @@ class CreateHelpViewController: UIViewController, UITextFieldDelegate {
             //let mainPage = segue.destinationViewController as! MainPageViewController
             //mainPage.loggedUser = mailField.text!
             
+            let dvc = segue.destinationViewController as! MainPageViewController
+            dvc.loggedUser = user
             
             do {
                 try managedContext.save()
             } catch {
                 print("Problème lors de la sauvegarde !")
             }
+        }
+        if(segue.identifier == "BackToMain"){
+            let dvc = segue.destinationViewController as! MainPageViewController
+            dvc.loggedUser = user
         }
     }
     

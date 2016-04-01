@@ -36,6 +36,13 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "BackToMain"){
+            let dvc = segue.destinationViewController as! MainPageViewController
+            dvc.loggedUser = user
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

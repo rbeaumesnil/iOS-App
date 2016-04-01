@@ -11,9 +11,11 @@ import CoreData
 
 class DetailsViewController: UIViewController {
     var service : NSManagedObject!
+    var user : NSManagedObject!
     
     @IBOutlet weak var titleField: UILabel!
-    @IBOutlet weak var descField: UILabel!
+    @IBOutlet weak var descField: UITextView!
+    
     @IBOutlet weak var dateDebut: UILabel!
     @IBOutlet weak var dateFin: UILabel!
     @IBOutlet weak var dayDuration: UILabel!
@@ -40,6 +42,12 @@ class DetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "BackToMain"){
+            let dvc = segue.destinationViewController as! MainPageViewController
+            dvc.loggedUser = user
+        }
+    }
 
     /*
     // MARK: - Navigation
