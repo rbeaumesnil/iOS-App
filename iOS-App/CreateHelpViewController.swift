@@ -26,6 +26,9 @@ class CreateHelpViewController: UIViewController, UITextFieldDelegate {
         self.addressField.delegate = self
         self.durationField.delegate = self
         // Do any additional setup after loading the view.
+        let currentDate = NSDate()
+        beginDate.minimumDate = currentDate
+        endDate.minimumDate = currentDate
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
